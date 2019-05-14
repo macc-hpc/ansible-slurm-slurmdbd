@@ -29,5 +29,4 @@ slurmdbd_config:
   StorageUser: slurm
   StorageLoc: slurm
 
-slurmdbd_config_override:
-  DbdHost: blargh
+slurmdbd_config_override: {}
