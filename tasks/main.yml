@@ -17,11 +17,11 @@
   file:
     path: "{{ item }}"
     state: directory
-    owner: slurm
-    group: slurm
+    owner: "{{ slurmdbd_user }}"
+    group: "{{ slurmdbd_group }}"
     mode: 0755
   loop:
-    - /var/log/slurm
+    - "{{ slurm_logdir }}"
     - /etc/slurm
   tags: slurm
 

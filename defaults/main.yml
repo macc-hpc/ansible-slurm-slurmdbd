@@ -1,6 +1,9 @@
 ---
 
 slurmdbd_ohpc_version: 1.3
+slurmdbd_logdir: /var/log/slurm
+slurmdbd_user: slurm
+slurmdbd_group: slurm
 
 slurmdbd_config:
   ArchiveEvents: yes
@@ -22,7 +25,6 @@ slurmdbd_config:
   PurgeUsageAfter: 24month
   LogFile: /var/log/slurm/slurmdbd.log
   PidFile: /var/run/slurmdbd.pid
-  SlurmUser: slurm
   StorageHost: 127.0.0.1
   StoragePass: secret
   StorageType: accounting_storage/mysql
