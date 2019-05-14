@@ -1,0 +1,43 @@
+---
+
+- name: install OpenHPC repository
+  yum:
+    name: "https://github.com/openhpc/ohpc/releases/download/v{{ slurmdbd_ohpc_version }}.GA/ohpc-release-{{ slurmdbd_ohpc_version }}-1.el7.x86_64.rpm"
+  tags: slurm
+
+- name: install packages
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - slurm-slurmdbd-ohpc
+  tags: slurm
+
+- name: create directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: slurm
+    group: slurm
+    mode: 0755
+  loop:
+    - /var/log/slurm
+    - /etc/slurm
+  tags: slurm
+
+- name: copy configuration
+  template:
+    src: slurmdbd.conf
+    dest: /etc/slurm/slurmdbd.conf
+    owner: slurm
+    group: slurm
+    mode: 0600
+  notify: restart slurmdbd
+  tags: slurm
+
+- name: enable and start service
+  service:
+    name: slurmdbd
+    state: started
+    enabled: yes
+  tags: slurm
