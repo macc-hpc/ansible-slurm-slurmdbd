@@ -29,8 +29,8 @@
   template:
     src: slurmdbd.conf
     dest: /etc/slurm/slurmdbd.conf
-    owner: slurm
-    group: slurm
+    owner: "{{ slurmdbd_user }}"
+    group: "{{ slurmdbd_group }}"
     mode: 0600
   notify: restart slurmdbd
   tags: slurm
