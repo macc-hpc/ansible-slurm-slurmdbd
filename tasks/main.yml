@@ -21,7 +21,7 @@
     group: "{{ slurmdbd_group }}"
     mode: 0755
   loop:
-    - "{{ slurm_logdir }}"
+    - "{{ slurmdbd_logdir }}"
     - /etc/slurm
   tags: slurm
 
