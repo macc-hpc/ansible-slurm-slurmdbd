@@ -29,6 +29,5 @@ slurmdbd_config:
   StoragePass: secret
   StorageType: accounting_storage/mysql
   StorageUser: slurm
-  StorageLoc: slurm
 
 slurmdbd_config_override: {}
