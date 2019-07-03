@@ -2,7 +2,7 @@
 
 - name: install OpenHPC repository
   yum:
-    name: "https://github.com/openhpc/ohpc/releases/download/v{{ slurmdbd_ohpc_version }}.GA/ohpc-release-{{ slurmdbd_ohpc_version }}-1.el7.x86_64.rpm"
+    name: "{{ slurmdbd_ohpc_version }}"
   tags: slurm
 
 - name: install packages
